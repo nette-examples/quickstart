@@ -1,0 +1,123 @@
+{* This is the welcome page, you can delete it *}
+
+{block content}
+<div id="banner">
+	<h1 n:block=title>Congratulations!</h1>
+</div>
+
+<div id="content">
+	<h2>You have successfully created your Nette Framework project.</h2>
+
+	<div class="box">
+		<h2><img src="http://files.nette.org/sandbox/sourcecode.png" alt="">Explore source codes</h2>
+		<p>See source code of <a href="#template">this page template</a>, <a href="#layout">layout template</a> and
+		<a href="#presenter">corresponding presenter</a>. And feel free to modify them!</p>
+	</div>
+
+	<div class="box">
+		<h2><a href="{$basePath}/adminer/"><img src="http://files.nette.org/sandbox/database.png" alt="">Manage database tables</a></h2>
+		<p>Manage your database using pre-installed tool <a href="{$basePath}/adminer/">Adminer</a> with an easy to use GUI.<p>
+	</div>
+
+	<div class="box">
+		<h2><a href="http://doc.nette.org/quickstart"><img src="http://files.nette.org/sandbox/book.png" alt="">Read<br>Quick-start tutorial</a></h2>
+		<p>If you are exploring Nette Framework for the first time, you should read the
+		<a href="http://doc.nette.org/quickstart">Quick Start</a>, <a href="http://doc.nette.org">documentation</a>,
+		<a href="http://pla.nette.org">tutorials</a> and <a href="http://forum.nette.org">forum</a>.</p>
+	</div>
+
+	<h2>We hope you enjoy this framework!</h2>
+
+	<section id="template">
+		<h2>This page template located at <span>{strstr($presenter->template->getFile(), app)}</span></h2>
+
+		<pre><code class="jush">{file_get_contents($presenter->template->getFile())}</code></pre>
+	</section>
+
+	<section id="layout">
+		<h2>Layout template located at <span>{strstr($template->getFile(), app)}</span></h2>
+
+		<pre><code class="jush">{file_get_contents($template->getFile())}</code></pre>
+	</section>
+
+	<section id="presenter">
+		<h2>Current presenter located at <span>{strstr($presenter->reflection->fileName, app)}</span></h2>
+
+		<pre><code class="jush-php">{file_get_contents($presenter->reflection->fileName)}</code></pre>
+	</section>
+
+	<footer>PHP {=PHP_VERSION} |
+		{ifset $_SERVER['SERVER_SOFTWARE']}Server {$_SERVER['SERVER_SOFTWARE']}{/ifset} |
+		Nette Framework {=Nette\Framework::VERSION}</footer>
+</div>
+{/block}
+
+{block scripts}
+{include #parent}
+<script src="http://jush.sourceforge.net/jush.js"></script>
+<script>
+	jush.create_links = false;
+	jush.highlight_tag('code');
+	$('code.jush').each(function(){ $(this).html($(this).html().replace(/\x7B[/$\w].*?\}/g, '<span class="jush-latte">$&</span>')) });
+
+	$('a[href^=#]').click(function(){
+		$('html,body').animate({ scrollTop: $($(this).attr('href')).show().offset().top - 5 }, 'fast');
+		return false;
+	});
+</script>
+{/block}
+
+
+{block head}
+<style>
+html { overflow-y: scroll; }
+body { font: 14px/1.65 Verdana, "Geneva CE", lucida, sans-serif; background: #3484d2; color: #333; margin: 38px auto; max-width: 940px; min-width: 770px; }
+
+h1, h2 { font: normal 150%/1.3 Georgia, "New York CE", utopia, serif; color: #1e5eb6; -webkit-text-stroke: 1px rgba(0,0,0,0); }
+
+img { border: none; }
+
+a { color: #006aeb; padding: 3px 1px; }
+
+a:hover, a:active, a:focus { background-color: #006aeb; text-decoration: none; color: white; }
+
+#banner { border-radius: 12px 12px 0 0; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAB5CAMAAADPursXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGBQTFRFD1CRDkqFDTlmDkF1D06NDT1tDTNZDk2KEFWaDTZgDkiCDTtpDT5wDkZ/DTBVEFacEFOWD1KUDTRcDTFWDkV9DkR7DkN4DkByDTVeDC9TDThjDTxrDkeADkuIDTRbDC9SbsUaggAAAEdJREFUeNqkwYURgAAQA7DH3d3335LSKyxAYpf9vWCpnYbf01qcOdFVXc14w4BznNTjkQfsscAdU3b4wIh9fDVYc4zV8xZgAAYaCMI6vPgLAAAAAElFTkSuQmCC); }
+#banner h1 { color: white; font-size: 50px; line-height: 121px; margin: 0; padding-left: 40px; background: url(http://files.nette.org/sandbox/logo.png) no-repeat 95%; text-shadow: 1px 1px 0 rgba(0, 0, 0, .9); }
+
+#content { background: white; border: 1px solid #eff4f7; border-radius: 0 0 12px 12px; padding: 10px 40px; }
+#content > h2 { font-size: 130%; color: #666; clear: both; padding: 1.2em 0; margin: 0; }
+
+h2 span { color: #87A7D5; }
+h2 a { text-decoration: none; background: transparent; }
+
+.box { width: 24%; float: left; background: #f0f0f0; margin-right: 4%; min-height: 230px; padding: 3%; border: 1px solid #e6e6e6; border-radius: 5px; }
+.box h2 { text-align: right; margin: 0; }
+.box img { float: left; }
+.box p { clear: both; }
+.box:nth-child(4n - 2) h2 { color: #00a6e5; }
+.box:nth-child(4n - 2) img { margin: -24px 0 0 -24px; }
+.box:nth-child(4n - 1) h2 a { color: #db8e34; background: transparent; }
+.box:nth-child(4n) { margin: 0; }
+.box:nth-child(4n) h2 a { color: #578404; background: transparent; }
+
+html.js section { display: none; }
+
+pre { font-size: 12px; line-height: 1.4; padding: 10px; margin: 1.3em 0; overflow: auto; max-height: 500px; background: #F1F5FB; border-radius: 5px; box-shadow: 0 1px 1px rgba(0, 0, 0, .1); }
+
+footer { font-size: 70%; padding: 1em 0; color: gray; }
+
+.jush-com, .jush-php_doc { color: #929292; }
+.jush-tag, .jush-tag_js { color: #6A8527; font-weight: bold; }
+.jush-att { color: #8CA315 }
+.jush-att_quo { color: #448CCB; font-weight: bold; }
+.jush-php_var { color: #d59401; font-weight: bold; }
+.jush-php_apo { color: green; }
+.jush-php_new { font-weight: bold; }
+.jush-php_fun { color: #254DB3; }
+.jush-js, .jush-css { color: #333333; }
+.jush-css_val { color: #448CCB; }
+.jush-clr { color: #007800; }
+.jush a { color: inherit; background: transparent; }
+.jush-latte { color: #D59401; font-weight: bold }
+</style>
+{/block}
