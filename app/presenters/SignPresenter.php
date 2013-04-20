@@ -1,14 +1,11 @@
 <?php
 
-use Nette\Application\UI;
+use Nette\Application\UI\Form;
 
 
-/**
- * Sign in/out presenters.
- */
+
 class SignPresenter extends BasePresenter
 {
-
 
 	/**
 	 * Sign-in form factory.
@@ -16,14 +13,12 @@ class SignPresenter extends BasePresenter
 	 */
 	protected function createComponentSignInForm()
 	{
-		$form = new UI\Form;
+		$form = new Form;
 		$form->addText('username', 'Username:')
 			->setRequired('Please enter your username.');
 
 		$form->addPassword('password', 'Password:')
 			->setRequired('Please enter your password.');
-
-		$form->addCheckbox('remember', 'Keep me signed in');
 
 		$form->addSubmit('send', 'Sign in');
 
@@ -34,22 +29,16 @@ class SignPresenter extends BasePresenter
 
 
 
-	public function signInFormSucceeded($form)
+	public function signInFormSucceeded(Form $form)
 	{
 		$values = $form->getValues();
-
-		if ($values->remember) {
-			$this->getUser()->setExpiration('14 days', FALSE);
-		} else {
-			$this->getUser()->setExpiration('20 minutes', TRUE);
-		}
 
 		try {
 			$this->getUser()->login($values->username, $values->password);
 			$this->redirect('Homepage:');
-			
+
 		} catch (Nette\Security\AuthenticationException $e) {
-			$form->addError($e->getMessage());
+			$form->addError('Incorrect username or password.');
 		}
 	}
 
@@ -59,7 +48,7 @@ class SignPresenter extends BasePresenter
 	{
 		$this->getUser()->logout();
 		$this->flashMessage('You have been signed out.');
-		$this->redirect('in');
+		$this->redirect('Homepage:');
 	}
 
 }
