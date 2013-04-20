@@ -11,26 +11,20 @@ application:
 
 
 database:
-	dsn: 'sqlite::memory:'
+	dsn: 'sqlite:%rootDir%/data/blog.sqlite'
 	user:
 	password:
 
 
+security:
+	users:
+		admin: secret  # user 'admin', password 'secret'
+
+
 latte:
 	strictTypes: yes
-	strictParsing: yes
-	extensions:
-		- App\Presentation\Accessory\LatteExtension
-
-
 assets:
 	mapping:
 		default:
 			path: assets
 			# type: vite  # Uncomment to activate Vite for asset building
-
-
-di:
-	export:
-		parameters: no
-		tags: no
