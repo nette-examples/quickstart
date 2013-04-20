@@ -14,11 +14,10 @@ database:
 	password:
 
 
+security:
+	users:
+		admin: secret  # user 'admin', password 'secret'
+
+
 latte:
 	strictTypes: yes
-
-
-di:
-	export:
-		parameters: no
-		tags: no
