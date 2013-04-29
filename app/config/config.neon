@@ -25,7 +25,6 @@ common:
 
 
 	services:
-		authenticator: Authenticator
 		routerFactory: RouterFactory
 		router: @routerFactory::createRouter
 

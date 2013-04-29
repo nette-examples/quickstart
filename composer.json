@@ -1,7 +1,5 @@
 {
-	"name": "nette/sandbox",
-	"description": "The sandbox is a pre-packaged Nette Framework project, basic configured structure for your application.",
-	"homepage": "http://nette.org",
+	"name": "nette/quickstart",
 	"license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
 	"authors": [
 		{
@@ -18,7 +16,7 @@
 	},
 	"require": {
 		"php": ">= 5.3.0",
-		"nette/nette": ">= 2.0.7"
+		"nette/nette": ">= 2.0.10"
 	},
     "require-dev": {
         "nette/tester": "@dev"
