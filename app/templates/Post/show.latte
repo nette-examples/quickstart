@@ -1,8 +1,8 @@
-{block #navig}
+{block navig}
 	<li n:if="$user->loggedIn"><a n:href="edit $post->id">Edit this post</a></li>
 {/block}
 
-{block #content}
+{block content}
 <div class="date">{$post->created_at|date:'F j, Y'}</div>
 
 <h1 n:block=title>{$post->title}</h1>

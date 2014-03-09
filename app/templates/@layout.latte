@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
 	<meta name="description" content="">
 	<meta name="robots" content="{$robots}" n:ifset="$robots">
 
-	<title>{block #title|striptags|trim}Homepage{/block} | Nette Framework Micro-blog</title>
+	<title>{block title|striptags|trim}Homepage{/block} | Nette Framework Micro-blog</title>
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
@@ -18,7 +18,7 @@
 
 	<ul class="navig">
 		<li><a n:href="Homepage:">Homepage</a></li>
-		{block #navig}{/block}
+		{block navig}{/block}
 		{if $user->loggedIn}
 			<li><a n:href="Sign:out">Sign out</a></li>
 		{else}
@@ -28,7 +28,7 @@
 
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
-	{include #content}
+	{include content}
 
 	<p class="footer">This is a <a href="http://doc.nette.org/quickstart">Nette Framework Quick Start</a>.</p>
 

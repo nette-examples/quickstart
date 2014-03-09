@@ -1,5 +1,6 @@
 {
 	"name": "nette/quickstart",
+	"type": "project",
 	"license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
 	"authors": [
 		{
@@ -11,14 +12,12 @@
 			"homepage": "http://nette.org/contributors"
 		}
 	],
-	"config": {
-		"vendor-dir": "libs"
-	},
 	"require": {
-		"php": ">= 5.3.0",
-		"nette/nette": ">= 2.0.10"
+		"php": ">= 5.3.7",
+		"nette/nette": "~2.1.0",
+		"dg/adminer-custom": "1.*"
 	},
     "require-dev": {
-        "nette/tester": "@dev"
+		"nette/tester": "~1.0.0"
 	}
 }

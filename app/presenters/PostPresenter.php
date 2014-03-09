@@ -1,21 +1,22 @@
 <?php
 
-use Nette\Application\UI\Form;
+namespace App\Presenters;
+
+use Nette,
+	Nette\Application\UI\Form;
 
 
 
 class PostPresenter extends BasePresenter
 {
-	/** @var Nette\Database\Connection */
+	/** @var Nette\Database\Context */
 	private $database;
 
 
-
-	public function __construct(Nette\Database\Connection $database)
+	public function __construct(Nette\Database\Context $database)
 	{
 		$this->database = $database;
 	}
-
 
 
 	public function renderShow($postId)
@@ -28,7 +29,6 @@ class PostPresenter extends BasePresenter
 		$this->template->post = $post;
 		$this->template->comments = $post->related('comment')->order('created_at');
 	}
-
 
 
 	protected function createComponentCommentForm()
@@ -52,7 +52,6 @@ class PostPresenter extends BasePresenter
 	}
 
 
-
 	public function commentFormSucceeded(Form $form)
 	{
 		$values = $form->getValues();
@@ -69,14 +68,12 @@ class PostPresenter extends BasePresenter
 	}
 
 
-
 	public function actionCreate()
 	{
 		if (!$this->user->isLoggedIn()) {
 			$this->redirect('Sign:in');
 		}
 	}
-
 
 
 	public function actionEdit($postId)
@@ -91,7 +88,6 @@ class PostPresenter extends BasePresenter
 		}
 		$this['postForm']->setDefaults($post->toArray());
 	}
-
 
 
 	protected function createComponentPostForm()
@@ -111,7 +107,6 @@ class PostPresenter extends BasePresenter
 
 		return $form;
 	}
-
 
 
 	public function postFormSucceeded(Form $form)

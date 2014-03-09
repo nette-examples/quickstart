@@ -28,7 +28,7 @@ a[href^="error:"] {
 	color: white;
 }
 
-form tr, form td {
+form th, form td {
 	vertical-align: top;
 	font-weight: normal;
 }

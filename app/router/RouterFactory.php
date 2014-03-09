@@ -1,6 +1,9 @@
 <?php
 
-use Nette\Application\Routers\RouteList,
+namespace App;
+
+use Nette,
+	Nette\Application\Routers\RouteList,
 	Nette\Application\Routers\Route,
 	Nette\Application\Routers\SimpleRouter;
 
@@ -18,7 +21,6 @@ class RouterFactory
 	{
 		$router = new RouteList();
 		$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
-
 		return $router;
 	}
 

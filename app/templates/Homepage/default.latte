@@ -1,8 +1,8 @@
-{block #navig}
+{block navig}
 	<li n:if="$user->loggedIn"><a n:href="Post:create">Write new post</a></li>
 {/block}
 
-{block #content}
+{block content}
 <h1 n:block="title">My awesome blog</h1>
 
 <div n:foreach="$posts as $post" class="post">

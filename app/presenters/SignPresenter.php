@@ -1,7 +1,9 @@
 <?php
 
-use Nette\Application\UI\Form;
+namespace App\Presenters;
 
+use Nette,
+	Nette\Application\UI\Form;
 
 
 class SignPresenter extends BasePresenter
@@ -28,7 +30,6 @@ class SignPresenter extends BasePresenter
 	}
 
 
-
 	public function signInFormSucceeded(Form $form)
 	{
 		$values = $form->getValues();
@@ -41,7 +42,6 @@ class SignPresenter extends BasePresenter
 			$form->addError('Incorrect username or password.');
 		}
 	}
-
 
 
 	public function actionOut()
