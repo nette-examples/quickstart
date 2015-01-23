@@ -21,6 +21,9 @@ nette:
 	session:
 		expiration: 14 days
 
+	security:
+		users:
+			admin: secret  # user 'admin', password 'secret'
 
 services:
 	- App\RouterFactory
