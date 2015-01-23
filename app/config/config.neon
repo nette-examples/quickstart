@@ -25,3 +25,6 @@ nette:
 services:
 	- App\RouterFactory
 	router: @App\RouterFactory::createRouter
+	authenticator: Nette\Security\SimpleAuthenticator([
+                admin: admin
+            ])
