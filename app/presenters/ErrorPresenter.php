@@ -4,7 +4,7 @@ namespace App\Presenters;
 
 use Nette,
 	App\Model,
-	Nette\Diagnostics\Debugger;
+	Tracy\Debugger;
 
 
 /**

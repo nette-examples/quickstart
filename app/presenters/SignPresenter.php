@@ -30,10 +30,8 @@ class SignPresenter extends BasePresenter
 	}
 
 
-	public function signInFormSucceeded($form)
+	public function signInFormSucceeded($form, $values)
 	{
-		$values = $form->getValues();
-
 		try {
 			$this->getUser()->login($values->username, $values->password);
 			$this->redirect('Homepage:');

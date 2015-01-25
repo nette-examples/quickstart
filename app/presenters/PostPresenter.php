@@ -52,10 +52,8 @@ class PostPresenter extends BasePresenter
 	}
 
 
-	public function commentFormSucceeded($form)
+	public function commentFormSucceeded($form, $values)
 	{
-		$values = $form->getValues();
-
 		$this->database->table('comments')->insert(array(
 			'post_id' => $this->getParameter('postId'),
 			'name' => $values->name,
@@ -109,9 +107,8 @@ class PostPresenter extends BasePresenter
 	}
 
 
-	public function postFormSucceeded($form)
+	public function postFormSucceeded($form, $values)
 	{
-		$values = $form->getValues();
 		$postId = $this->getParameter('postId');
 
 		if ($postId) {
