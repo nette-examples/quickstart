@@ -1,7 +1,5 @@
 #
-# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
-#
-# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
 # http://nette.org/security-warning
 #
 parameters:
@@ -9,7 +7,6 @@ parameters:
 
 php:
 	date.timezone: Europe/Prague
-	# zlib.output_compression: yes
 
 
 nette:
@@ -26,5 +23,4 @@ nette:
 			admin: secret  # user 'admin', password 'secret'
 
 services:
-	- App\RouterFactory
-	router: @App\RouterFactory::createRouter
+	router: App\RouterFactory::createRouter

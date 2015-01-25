@@ -1,48 +1,87 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "8ea026396e8bb98512d12880c5858a28",
+    "hash": "6fd171d777cc6c1a1ae373c80ea74970",
     "packages": [
         {
-            "name": "nette/nette",
-            "version": "v2.0.10",
+            "name": "dg/adminer-custom",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/nette/nette.git",
-                "reference": "v2.0.10"
+                "url": "https://github.com/dg/adminer-custom.git",
+                "reference": "9365952e11b2b706be94c5000bf032027557a45b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/nette/zipball/v2.0.10",
-                "reference": "v2.0.10",
+                "url": "https://api.github.com/repos/dg/adminer-custom/zipball/9365952e11b2b706be94c5000bf032027557a45b",
+                "reference": "9365952e11b2b706be94c5000bf032027557a45b",
+                "shasum": ""
+            },
+            "type": "project",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Customization for the best database management tool written in PHP, Adminer",
+            "time": "2014-08-05 16:59:07"
+        },
+        {
+            "name": "nette/nette",
+            "version": "v2.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/nette.git",
+                "reference": "1fa4d477c855d38751be15b2e7e4eb352f114220"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/nette/zipball/1fa4d477c855d38751be15b2e7e4eb352f114220",
+                "reference": "1fa4d477c855d38751be15b2e7e4eb352f114220",
                 "shasum": ""
             },
             "require": {
                 "ext-iconv": "*",
                 "ext-tokenizer": "*",
-                "php": ">=5.3.0"
+                "php": ">=5.3.1"
+            },
+            "replace": {
+                "latte/latte": "self.version",
+                "nette/application": "self.version",
+                "nette/bootstrap": "self.version",
+                "nette/caching": "self.version",
+                "nette/component-model": "self.version",
+                "nette/database": "self.version",
+                "nette/di": "self.version",
+                "nette/finder": "self.version",
+                "nette/forms": "self.version",
+                "nette/http": "self.version",
+                "nette/mail": "self.version",
+                "nette/neon": "self.version",
+                "nette/php-generator": "self.version",
+                "nette/reflection": "self.version",
+                "nette/robot-loader": "self.version",
+                "nette/safe-stream": "self.version",
+                "nette/security": "self.version",
+                "nette/tokenizer": "self.version",
+                "nette/utils": "self.version",
+                "tracy/tracy": "self.version"
             },
             "require-dev": {
-                "nette/tester": "@dev"
+                "nette/tester": "~1.3"
             },
             "suggest": {
-                "ext-fileinfo": "*",
-                "ext-gd": "*",
-                "ext-mbstring": "*",
-                "ext-memcache": "*",
-                "ext-pdo": "*"
+                "ext-fileinfo": "",
+                "ext-gd": "",
+                "ext-mbstring": "",
+                "ext-pdo": ""
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1-dev"
-                }
-            },
             "autoload": {
+                "classmap": [
+                    "Nette/"
+                ],
                 "files": [
-                    "Nette/loader.php"
+                    "Nette/common/shortcuts.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -66,33 +105,28 @@
             "keywords": [
                 "Forms",
                 "database",
-                "dbal",
                 "debugging",
                 "framework",
-                "images",
-                "latte",
                 "mailing",
-                "micro",
                 "mvc",
-                "neon",
                 "templating"
             ],
-            "time": "2013-03-08 15:44:35"
+            "time": "2015-01-06 21:16:30"
         }
     ],
     "packages-dev": [
         {
             "name": "nette/tester",
-            "version": "dev-master",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/tester.git",
-                "reference": "dd4f7e25ff6175b598cbc3462ca13a411e3c27f4"
+                "reference": "73e9511cb0bd03efdba398c00e91fac8b22edde7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/tester/zipball/dd4f7e25ff6175b598cbc3462ca13a411e3c27f4",
-                "reference": "dd4f7e25ff6175b598cbc3462ca13a411e3c27f4",
+                "url": "https://api.github.com/repos/nette/tester/zipball/73e9511cb0bd03efdba398c00e91fac8b22edde7",
+                "reference": "73e9511cb0bd03efdba398c00e91fac8b22edde7",
                 "shasum": ""
             },
             "require": {
@@ -102,6 +136,11 @@
                 "Tester/tester"
             ],
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3-dev"
+                }
+            },
             "autoload": {
                 "classmap": [
                     "Tester/"
@@ -123,27 +162,23 @@
                     "homepage": "http://nette.org/contributors"
                 }
             ],
-            "description": "An easy-to-use PHP Unit Testing framework.",
+            "description": "An easy-to-use PHP unit testing framework.",
             "homepage": "http://nette.org",
             "keywords": [
                 "nette",
                 "testing",
                 "unit"
             ],
-            "time": "2013-04-25 13:48:02"
+            "time": "2014-09-27 10:42:19"
         }
     ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "nette/tester": 20
-    },
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": {
-        "php": ">= 5.3.0"
+        "php": ">= 5.3.7"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }

@@ -9,7 +9,6 @@ use Nette,
 $container = require __DIR__ . '/bootstrap.php';
 
 
-
 class ExampleTest extends Tester\TestCase
 {
 	private $container;
@@ -34,4 +33,5 @@ class ExampleTest extends Tester\TestCase
 }
 
 
-id(new ExampleTest($container))->run();
+$test = new ExampleTest($container);
+$test->run();

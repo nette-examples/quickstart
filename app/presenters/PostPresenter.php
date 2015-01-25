@@ -46,13 +46,13 @@ class PostPresenter extends BasePresenter
 			->setRequired();
 
 		$form->addSubmit('send', 'Publish comment');
-		$form->onSuccess[] = $this->commentFormSucceeded;
+		$form->onSuccess[] = array($this, 'commentFormSucceeded');
 
 		return $form;
 	}
 
 
-	public function commentFormSucceeded(Form $form)
+	public function commentFormSucceeded($form)
 	{
 		$values = $form->getValues();
 
@@ -70,7 +70,7 @@ class PostPresenter extends BasePresenter
 
 	public function actionCreate()
 	{
-		if (!$this->user->isLoggedIn()) {
+		if (!$this->getUser()->isLoggedIn()) {
 			$this->redirect('Sign:in');
 		}
 	}
@@ -78,7 +78,7 @@ class PostPresenter extends BasePresenter
 
 	public function actionEdit($postId)
 	{
-		if (!$this->user->isLoggedIn()) {
+		if (!$this->getUser()->isLoggedIn()) {
 			$this->redirect('Sign:in');
 		}
 
@@ -92,7 +92,7 @@ class PostPresenter extends BasePresenter
 
 	protected function createComponentPostForm()
 	{
-		if (!$this->user->isLoggedIn()) {
+		if (!$this->getUser()->isLoggedIn()) {
 			$this->error('You need to log in to create or edit posts');
 		}
 
@@ -103,13 +103,13 @@ class PostPresenter extends BasePresenter
 			->setRequired();
 
 		$form->addSubmit('send', 'Save and publish');
-		$form->onSuccess[] = $this->postFormSucceeded;
+		$form->onSuccess[] = array($this, 'postFormSucceeded');
 
 		return $form;
 	}
 
 
-	public function postFormSucceeded(Form $form)
+	public function postFormSucceeded($form)
 	{
 		$values = $form->getValues();
 		$postId = $this->getParameter('postId');

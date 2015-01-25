@@ -2,20 +2,15 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="robots" content="{$robots}" n:ifset="$robots">
 
-	<title>{block title|striptags|trim}Homepage{/block} | Nette Framework Micro-blog</title>
+	<title>{ifset #title}{include title|striptags} | {/ifset}Nette Framework Micro-blog</title>
 
-	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
-	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
+	<link rel="stylesheet" href="{$basePath}/css/style.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 	{block head}{/block}
 </head>
 
 <body>
-	<script> document.documentElement.className+=' js' </script>
-
 	<ul class="navig">
 		<li><a n:href="Homepage:">Homepage</a></li>
 		{block navig}{/block}
