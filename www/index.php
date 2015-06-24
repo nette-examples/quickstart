@@ -1,8 +1,8 @@
 <?php
 
 // Uncomment this line if you must temporarily take down your site for maintenance.
-// require '.maintenance.php';
+// require __DIR__ . '/.maintenance.php';
 
 $container = require __DIR__ . '/../app/bootstrap.php';
 
-$container->getService('application')->run();
+$container->getByType('Nette\Application\Application')->run();

@@ -3,10 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>{ifset #title}{include title|striptags} | {/ifset}Nette Framework Micro-blog</title>
+	<title>{ifset title}{include title|striptags} | {/ifset}Nette Framework Micro-blog</title>
 
 	<link rel="stylesheet" href="{$basePath}/css/style.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+	<meta name="viewport" content="width=device-width">
 	{block head}{/block}
 </head>
 
@@ -21,15 +22,15 @@
 		{/if}
 	</ul>
 
-	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
 	{include content}
 
 	<p class="footer">This is a <a href="http://doc.nette.org/quickstart">Nette Framework Quick Start</a>.</p>
 
 	{block scripts}
-	<script src="{$basePath}/js/jquery.js"></script>
-	<script src="{$basePath}/js/netteForms.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
 	<script src="{$basePath}/js/main.js"></script>
 	{/block}
 </body>

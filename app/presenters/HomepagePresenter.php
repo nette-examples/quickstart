@@ -2,8 +2,7 @@
 
 namespace App\Presenters;
 
-use Nette,
-	Nette\Application\UI\Form;
+use Nette;
 
 
 class HomepagePresenter extends BasePresenter

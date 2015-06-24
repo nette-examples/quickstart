@@ -2,12 +2,14 @@
 
 namespace App\Presenters;
 
-use Nette,
-	Nette\Application\UI\Form;
+use Nette;
+use App\Forms\SignFormFactory;
 
 
 class SignPresenter extends BasePresenter
 {
+	/** @var SignFormFactory @inject */
+	public $factory;
 
 	/**
 	 * Sign-in form factory.
@@ -15,30 +17,11 @@ class SignPresenter extends BasePresenter
 	 */
 	protected function createComponentSignInForm()
 	{
-		$form = new Form;
-		$form->addText('username', 'Username:')
-			->setRequired('Please enter your username.');
-
-		$form->addPassword('password', 'Password:')
-			->setRequired('Please enter your password.');
-
-		$form->addSubmit('send', 'Sign in');
-
-		// call method signInFormSucceeded() on success
-		$form->onSuccess[] = array($this, 'signInFormSucceeded');
+		$form = $this->factory->create();
+		$form->onSuccess[] = function ($form) {
+			$form->getPresenter()->redirect('Homepage:');
+		};
 		return $form;
-	}
-
-
-	public function signInFormSucceeded($form, $values)
-	{
-		try {
-			$this->getUser()->login($values->username, $values->password);
-			$this->redirect('Homepage:');
-
-		} catch (Nette\Security\AuthenticationException $e) {
-			$form->addError('Incorrect username or password.');
-		}
 	}
 
 

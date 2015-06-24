@@ -9,18 +9,21 @@ php:
 	date.timezone: Europe/Prague
 
 
-nette:
-	application:
-		errorPresenter: Error
-		mapping:
-			*: App\*Module\Presenters\*Presenter
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\*Module\Presenters\*Presenter
 
-	session:
-		expiration: 14 days
 
-	security:
-		users:
-			admin: secret  # user 'admin', password 'secret'
+session:
+	expiration: 14 days
+
+
+security:
+	users:
+		admin: secret  # user 'admin', password 'secret'
+
 
 services:
+	- App\Forms\SignFormFactory
 	router: App\RouterFactory::createRouter

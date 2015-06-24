@@ -2,9 +2,8 @@
 
 namespace App\Presenters;
 
-use Nette,
-	Nette\Application\UI\Form;
-
+use Nette;
+use Nette\Application\UI\Form;
 
 
 class PostPresenter extends BasePresenter
@@ -33,7 +32,7 @@ class PostPresenter extends BasePresenter
 
 	protected function createComponentCommentForm()
 	{
-		$form = new Form();
+		$form = new Form;
 		$form->addText('name', 'Your name:')
 			->setRequired();
 
