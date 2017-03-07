@@ -1,0 +1,23 @@
+{block navig}
+	<li n:if="$user->loggedIn"><a n:href="edit $post->id">Edit this post</a></li>
+{/block}
+
+{block content}
+<div class="date">{$post->created_at|date:'F j, Y'}</div>
+
+<h1 n:block=title>{$post->title}</h1>
+
+<div class="post">{$post->content}</div>
+
+<h2>Comments</h2>
+
+<div class="comments">
+	{foreach $comments as $comment}
+		<p><b><a href="mailto:{$comment->email}" n:tag-if="$comment->email">{$comment->name}</a></b> said:</p>
+		<div>{$comment->content}</div>
+	{/foreach}
+</div>
+
+<h2>Post new comment</h2>
+
+{control commentForm}
