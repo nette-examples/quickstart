@@ -14,7 +14,7 @@ If you like Nette, **[please make a donation now](https://nette.org/donate)**. T
 Requirements
 ------------
 
-- Web Project for Nette 2.4 requires PHP 5.6
+- Web Project for Nette 3.0 requires PHP 7.1
 - The master version of Web Project requires PHP 7.1
 
 
@@ -50,7 +50,7 @@ via a web browser. See [security warning](https://nette.org/security-warning).**
 Notice: Composer PHP version
 ----------------------------
 
-This project forces PHP 5.6 (eventually 7.1) as your PHP version for Composer packages. If you have newer 
+This project forces PHP 7.1 (eventually 7.2) as your PHP version for Composer packages. If you have newer 
 version on production server you should change it in `composer.json`:
 
 ```json
