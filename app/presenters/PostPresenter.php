@@ -88,10 +88,6 @@ final class PostPresenter extends Nette\Application\UI\Presenter
 
 	protected function createComponentPostForm(): Form
 	{
-		if (!$this->getUser()->isLoggedIn()) {
-			$this->error('You need to log in to create or edit posts');
-		}
-
 		$form = new Form;
 		$form->addText('title', 'Title:')
 			->setRequired();
@@ -107,6 +103,10 @@ final class PostPresenter extends Nette\Application\UI\Presenter
 
 	public function postFormSucceeded(Form $form, array $values): void
 	{
+		if (!$this->getUser()->isLoggedIn()) {
+			$this->error('You need to log in to create or edit posts');
+		}
+		
 		$postId = $this->getParameter('postId');
 
 		if ($postId) {
