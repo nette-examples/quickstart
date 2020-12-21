@@ -15,7 +15,7 @@ Thank you for your generosity!
 Requirements
 ------------
 
-This Web Project is compatible with Nette 3.1 and requires PHP 8.0.
+- Web Project for Nette 3.1 requires PHP 7.4
 
 
 Installation
