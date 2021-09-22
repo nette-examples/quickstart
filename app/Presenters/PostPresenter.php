@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Presenters;
 
+use App\Model\PostFacade;
 use Nette;
 use Nette\Application\UI\Form;
 
@@ -11,7 +12,7 @@ use Nette\Application\UI\Form;
 final class PostPresenter extends Nette\Application\UI\Presenter
 {
 	public function __construct(
-		private Nette\Database\Explorer $database,
+		private PostFacade $facade,
 	) {
 	}
 
