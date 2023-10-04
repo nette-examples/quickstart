@@ -7,6 +7,9 @@ namespace App\Model;
 use Nette;
 
 
+/**
+ * Facade for handling operations related to posts.
+ */
 final class PostFacade
 {
 	use Nette\SmartObject;
@@ -20,6 +23,10 @@ final class PostFacade
 	}
 
 
+	/**
+	 * Fetches all articles that were created before the current date.
+	 * Articles are ordered by their creation date in descending order.
+	 */
 	public function getPublicArticles()
 	{
 		return $this->database

@@ -8,6 +8,9 @@ use Nette;
 use Nette\Application\UI\Form;
 
 
+/**
+ * Presenter for editing posts.
+ */
 final class EditPresenter extends Nette\Application\UI\Presenter
 {
 	private Nette\Database\Explorer $database;
@@ -19,6 +22,9 @@ final class EditPresenter extends Nette\Application\UI\Presenter
 	}
 
 
+	/**
+	 * Ensure the user is logged in before any action.
+	 */
 	public function startup(): void
 	{
 		parent::startup();
@@ -29,6 +35,10 @@ final class EditPresenter extends Nette\Application\UI\Presenter
 	}
 
 
+	/**
+	 * Render the edit view for a specific post.
+	 * Sets default values for the form based on the post data.
+	 */
 	public function renderEdit(int $postId): void
 	{
 		$post = $this->database
@@ -44,6 +54,9 @@ final class EditPresenter extends Nette\Application\UI\Presenter
 	}
 
 
+	/**
+	 * Form for editing/creating posts.
+	 */
 	protected function createComponentPostForm(): Form
 	{
 		$form = new Form;
@@ -59,6 +72,10 @@ final class EditPresenter extends Nette\Application\UI\Presenter
 	}
 
 
+	/**
+	 * Handles the successful submission of the post form.
+	 * Updates an existing post or creates a new one.
+	 */
 	public function postFormSucceeded(array $data): void
 	{
 		$postId = $this->getParameter('postId');

@@ -8,6 +8,9 @@ use App\Model\PostFacade;
 use Nette;
 
 
+/**
+ * Presenter for the homepage.
+ */
 final class HomePresenter extends Nette\Application\UI\Presenter
 {
 	private PostFacade $facade;
@@ -19,6 +22,9 @@ final class HomePresenter extends Nette\Application\UI\Presenter
 	}
 
 
+	/**
+	 * Fetches and sends the latest public articles to the template.
+	 */
 	public function renderDefault(): void
 	{
 		$this->template->posts = $this->facade

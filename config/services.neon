@@ -1,3 +1,5 @@
+# Service registrations. See https://doc.nette.org/dependency-injection/services
+
 services:
 	- App\Router\RouterFactory::createRouter
 
