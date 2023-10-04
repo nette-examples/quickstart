@@ -8,10 +8,13 @@ use Nette;
 use Nette\Application\UI\Form;
 
 
+/**
+ * Presenter for sign-in and sign-up actions.
+ */
 final class SignPresenter extends Nette\Application\UI\Presenter
 {
 	/**
-	 * Sign-in form factory.
+	 * Creates the sign-in form component.
 	 */
 	protected function createComponentSignInForm(): Form
 	{
@@ -30,6 +33,9 @@ final class SignPresenter extends Nette\Application\UI\Presenter
 	}
 
 
+	/**
+	 * Handles the successful submission of the sign-in form.
+	 */
 	private function signInFormSucceeded(Form $form, \stdClass $data): void
 	{
 		try {
@@ -42,6 +48,9 @@ final class SignPresenter extends Nette\Application\UI\Presenter
 	}
 
 
+	/**
+	 * Handles user sign out and redirects to the homepage.
+	 */
 	public function actionOut(): void
 	{
 		$this->getUser()->logout();

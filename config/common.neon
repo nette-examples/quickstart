@@ -4,9 +4,11 @@ parameters:
 
 
 application:
+	# Error presenters to handle application errors
 	errorPresenter:
 		4xx: Error:Error4xx
 		5xx: Error:Error5xx
+	# Presenter to class name mapping pattern
 	mapping: App\Presentation\*\**Presenter
 
 

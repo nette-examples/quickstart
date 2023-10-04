@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 
+	{* If a title block is defined in the child template, it's included here. *}
 	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Framework Micro-blog</title>
 
 	<link rel="stylesheet" href="{$basePath}/css/style.css">
@@ -19,8 +20,10 @@
 		{/if}
 	</ul>
 
+	{* Display any flash messages to the user *}
 	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
 
+	{* Main content placeholder. This will be replaced by the content block of child templates. *}
 	{include content}
 
 	<p class="footer">This is a <a href="http://doc.nette.org/quickstart">Nette Framework Quick Start</a>.</p>

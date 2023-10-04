@@ -6,6 +6,7 @@ body {
 	background-color: #fff;
 }
 
+/* Flash messages styling - typically used for notifications or alerts */
 div.flash {
 	color: black;
 	background: #FFF9D7;
@@ -14,11 +15,13 @@ div.flash {
 	margin: 1em 0;
 }
 
+/* Style for error links - used by presenters */
 a[href^="#error:"] {
 	background: red;
 	color: white;
 }
 
+/* Form styles */
 form th, form td {
 	vertical-align: top;
 	font-weight: normal;
@@ -28,10 +31,12 @@ form th {
 	text-align: right;
 }
 
+/* Highlight required form fields */
 form .required label {
 	font-weight: bold;
 }
 
+/* Style for form error messages */
 form .error {
 	color: #D00;
 	font-weight: bold;
