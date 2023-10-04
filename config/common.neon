@@ -1,10 +1,14 @@
+# Application parameters and settings. See https://doc.nette.org/configuring
+
 parameters:
 
 
 application:
+	# Error presenters to handle application errors
 	errorPresenter:
 		4xx: Error4xx
 		5xx: Error5xx
+	# Presenter to class name mapping pattern
 	mapping: App\*Module\Presenters\*Presenter
 
 

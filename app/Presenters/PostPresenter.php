@@ -8,15 +8,23 @@ use App\Model\PostFacade;
 use Nette;
 use Nette\Application\UI\Form;
 
-
+/**
+ * Presenter for displaying and managing individual posts.
+ */
 final class PostPresenter extends Nette\Application\UI\Presenter
 {
+	/**
+	 * Dependency injection of the PostFacade.
+	 */
 	public function __construct(
 		private PostFacade $facade,
 	) {
 	}
 
 
+	/**
+	 * Fetches the post and its related comments, then sends them to the template.
+	 */
 	public function renderShow(int $postId): void
 	{
 		$post = $this->database->table('posts')->get($postId);
@@ -29,6 +37,9 @@ final class PostPresenter extends Nette\Application\UI\Presenter
 	}
 
 
+	/**
+	 * Form for adding comments to a post.
+	 */
 	protected function createComponentCommentForm(): Form
 	{
 		$form = new Form;
@@ -47,6 +58,9 @@ final class PostPresenter extends Nette\Application\UI\Presenter
 	}
 
 
+	/**
+	 * Handles the successful submission of the comment form.
+	 */
 	private function commentFormSucceeded(\stdClass $data): void
 	{
 		$this->database->table('comments')->insert([
